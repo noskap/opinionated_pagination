@@ -2,28 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:opinionated_pagination/pagination.constants.dart';
 
 class PaginationService {
-  void runTests() {
-    for (int i = 0; i < PaginationConstants.tests.length; i++) {
-      final PageTest index = PaginationConstants.tests[i];
-      runTest(i + 1, index.page, index.expected);
-    }
-  }
 
-  void runTest(int index, int paginationPage, List<String> expected) {
-    final List<String> test = getPageNumbers(paginationPage: paginationPage, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-    List<bool> passed4 = didPass(test, expected, index);
-
-    print('PAGINATION TEST $index *-*-*-*-* ${passed4.every((element) => element == true)} $test');
-  }
-
-  List<bool> didPass(List<String> test, List<String> expected, int index) {
-    List<bool> passed = [];
-    for (int i = 0; i < test.length; i++) {
-      if (test[i] != expected[i]) print('ERROR: Test $index: Case $i: ${test[i]} should be ${expected[i]}');
-      passed.add(test[i] == expected[i]);
-    }
-    return passed;
-  }
 
   List getPageNumbers({
     required int paginationPage,
@@ -46,20 +25,20 @@ class PaginationService {
       switch (type) {
         case ButtonTypes.left:
           rowToAddTest = ButtonTypes.left.name;
-          rowToAdd = PaginationConstants.leftButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap());
+          rowToAdd = PaginationConstants.leftButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap);
           break;
         case ButtonTypes.ellipsis:
           rowToAddTest = ButtonTypes.ellipsis.name;
-          rowToAdd = PaginationConstants.ellipsisButton(pageNumber: pageNumber, numberOfPages: numberOfPages, skip: skip, limit: limit, onTap: onTap());
+          rowToAdd = PaginationConstants.ellipsisButton(pageNumber: pageNumber, numberOfPages: numberOfPages, skip: skip, limit: limit, onTap: onTap);
           break;
         case ButtonTypes.right:
           rowToAddTest = ButtonTypes.right.name;
-          rowToAdd = PaginationConstants.rightButton(skip: skip, limit: limit, onTap: onTap());
+          rowToAdd = PaginationConstants.rightButton(skip: skip, limit: limit, onTap: onTap);
           break;
 
         case ButtonTypes.number:
           rowToAddTest = '${pageNumber + 1}';
-          rowToAdd = PaginationConstants.numberButton(pageNumber: pageNumber, numberOfPages: numberOfPages, i: i, skip: skip, limit: limit, onTap: onTap());
+          rowToAdd = PaginationConstants.numberButton(pageNumber: pageNumber, numberOfPages: numberOfPages, i: i, skip: skip, limit: limit, onTap: onTap);
           break;
       }
       rowNames.add(rowToAddTest);
