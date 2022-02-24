@@ -9,7 +9,7 @@ class PaginationService {
     bool testMode = false,
     int? skip,
     int? limit,
-    required Function onTap,
+    required Function(int) onTap,
   }) {
     if (testMode == false) {
       assert(skip != null);
@@ -32,7 +32,7 @@ class PaginationService {
           break;
         case ButtonTypes.right:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.rightButton(skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.rightButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap);
           break;
 
         case ButtonTypes.number:

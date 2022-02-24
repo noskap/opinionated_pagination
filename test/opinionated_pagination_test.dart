@@ -15,7 +15,7 @@ void runTest(int index, int paginationPage, List<String> expected) {
       paginationPage: paginationPage,
       numberOfPages: 27,
       testMode: true,
-      onTap: () {},
+      onTap: (int? i) {},
     ) as List<String>;
     didPass(test, expected, index);
   });

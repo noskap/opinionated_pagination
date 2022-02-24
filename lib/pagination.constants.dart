@@ -14,9 +14,9 @@ class PaginationConstants {
 
   static Icon arrowIcon(IconData icon) => Icon(icon, color: Colors.black, size: 15.0);
 
-  static GestureDetector leftButton({required int pageNumber, int? skip, int? limit, bool testMode = false, required Function onTap}) {
+  static GestureDetector leftButton({required int pageNumber, int? skip, int? limit, bool testMode = false, required Function(int) onTap}) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap(pageNumber),
       child: Padding(
         padding: const EdgeInsets.only(right: 10.0),
         child: Column(children: [arrowIcon(Icons.arrow_back_ios), _thing]),
@@ -30,13 +30,13 @@ class PaginationConstants {
   static GestureDetector ellipsisButton({
     required int pageNumber,
     required int numberOfPages,
-    required Function onTap,
+    required Function(int) onTap,
     int? skip,
     int? limit,
     bool testMode = false,
   }) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap(pageNumber),
       child: Padding(
         padding: EdgeInsets.only(right: pageNumber < numberOfPages ? 10.0 : 0),
         child: Column(
@@ -50,9 +50,9 @@ class PaginationConstants {
     );
   }
 
-  static GestureDetector rightButton({required Function onTap, int? skip, int? limit, bool testMode = false}) {
+  static GestureDetector rightButton({required int pageNumber,required Function(int) onTap, int? skip, int? limit, bool testMode = false}) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap(pageNumber),
       child: Column(children: [arrowIcon(Icons.arrow_forward_ios), _thing]),
     );
   }
@@ -62,12 +62,12 @@ class PaginationConstants {
     required int numberOfPages,
     required int i,
     int? skip,
-    required Function onTap,
+    required Function(int) onTap,
     int? limit,
     bool testMode = false,
   }) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap(pageNumber),
       child: Padding(
         padding: EdgeInsets.only(right: i < numberOfPages ? 10.0 : 0),
         child: Column(
