@@ -24,7 +24,7 @@ class PaginationService {
       switch (type) {
         case ButtonTypes.left:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.leftButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.leftButton(pageNumber: pageNumber, skip: skip, limit: limit, onTap: onTap);
           break;
         case ButtonTypes.ellipsis:
           rowToAddTest = type.name;
@@ -32,7 +32,7 @@ class PaginationService {
           break;
         case ButtonTypes.right:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.rightButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.rightButton(pageNumber: pageNumber, skip: skip, limit: limit, onTap: onTap);
           break;
 
         case ButtonTypes.number:
@@ -47,11 +47,7 @@ class PaginationService {
     for (int i = 0; i < PaginationConstants.totalButtons; i++) {
       switch (i) {
         case 0:
-          int pageNumber = i;
-          if (paginationPage > 0 && i != 5) {
-            pageNumber = i - 1;
-          }
-          addRow(type: paginationPage > 0 ? ButtonTypes.left : ButtonTypes.number, pageNumber: pageNumber, i: i);
+          addRow(type: paginationPage > 0 ? ButtonTypes.left : ButtonTypes.number, pageNumber: paginationPage, i: i);
           break;
         case 1:
           int pageNumber = i;
@@ -119,13 +115,7 @@ class PaginationService {
           addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
           break;
         case 6:
-          int pageNumber = paginationPage;
-          if (paginationPage > (numberOfPages - 4)) {
-            pageNumber = paginationPage;
-          } else if (paginationPage > 0 && i != 5) {
-            pageNumber = i - 1;
-          }
-          addRow(type: paginationPage < (numberOfPages - 1) ? ButtonTypes.right : ButtonTypes.number, pageNumber: pageNumber, i: i);
+          addRow(type: paginationPage < (numberOfPages - 1) ? ButtonTypes.right : ButtonTypes.number, pageNumber: paginationPage, i: i);
           break;
       }
     }
