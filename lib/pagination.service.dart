@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:opinionated_pagination/pagination.constants.dart';
 
 class PaginationService {
-
-
   List getPageNumbers({
     required int paginationPage,
     required int numberOfPages,
@@ -87,22 +85,14 @@ class PaginationService {
           break;
         case 3:
           int pageNumber = paginationPage;
-          if ((paginationPage > 3 && paginationPage < (numberOfPages - 3)) || paginationPage == (numberOfPages - 3)) {
-            pageNumber = paginationPage;
-          } else if (paginationPage == 0) {
+          if (paginationPage == 0) {
             pageNumber = 3;
-          } else if (paginationPage == 1) {
+          } else if (paginationPage == 1 || paginationPage == 2) {
             pageNumber = 2;
-          } else if (paginationPage == 2) {
-            pageNumber = 2;
-          } else if (paginationPage == (numberOfPages - 0)) {
-            pageNumber = numberOfPages - 4;
           } else if (paginationPage == (numberOfPages - 1)) {
             pageNumber = numberOfPages - 4;
           } else if (paginationPage == (numberOfPages - 2)) {
             pageNumber = numberOfPages - 3;
-          } else if (paginationPage > 0) {
-            pageNumber = paginationPage;
           }
 
           addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
