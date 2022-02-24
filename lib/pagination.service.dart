@@ -19,7 +19,7 @@ class PaginationService {
     List<Widget> row = [];
     List<String> rowNames = []; // For testing
 
-    addRow({required ButtonTypes type, required int pageNumber, required int i}) {
+    void addRow({required ButtonTypes type, required int pageNumber, required int i}) {
       Widget rowToAdd;
       String rowToAddTest;
       switch (type) {

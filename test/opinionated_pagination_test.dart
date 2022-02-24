@@ -11,11 +11,13 @@ void runTests() {
 
 void runTest(int index, int paginationPage, List<String> expected) {
   test('Test $index', () {
-    final List<String> test =
-        PaginationService().getPageNumbers(paginationPage: paginationPage, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-    List<bool> passed = didPass(test, expected, index);
-
-    // print('PAGINATION TEST $index *-*-*-*-* ${passed.every((element) => element == true)} $test');
+    final List<String> test = PaginationService().getPageNumbers(
+      paginationPage: paginationPage,
+      numberOfPages: 27,
+      testMode: true,
+      onTap: () {},
+    ) as List<String>;
+    didPass(test, expected, index);
   });
 }
 
@@ -49,23 +51,4 @@ List<bool> didPass(List<String> test, List<String> expected, int index) {
 
 void main() {
   runTests();
-  // test('', () {
-  // final calculator = PaginationService();
-  // final List<String> test1 = calculator.getPageNumbers(paginationPage: 0, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected1 = ['1', '2', '3', '4', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name];
-  // final List<String> test2 = calculator.getPageNumbers(paginationPage: 1, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected2 = [ButtonTypes.left.name, '1', '2', '3', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name];
-  // final List<String> test3 = calculator.getPageNumbers(paginationPage: 2, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected3 = [ButtonTypes.left.name, '1', '2', '3', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name];
-  // final List<String> test4 = calculator.getPageNumbers(paginationPage: 3, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected4 = [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '4', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name];
-  // final List<String> test5 = calculator.getPageNumbers(paginationPage: 23, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected5 = [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '24', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name];
-  // final List<String> test6 = calculator.getPageNumbers(paginationPage: 24, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected6 = [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '25', '26', '27', ButtonTypes.right.name];
-  // final List<String> test7 = calculator.getPageNumbers(paginationPage: 25, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected7 = [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '25', '26', '27', ButtonTypes.right.name];
-  // final List<String> test8 = calculator.getPageNumbers(paginationPage: 26, numberOfPages: 27, testMode: true, onTap: () {}) as List<String>;
-  // final expected8 = [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '24', '25', '26', '27'];
-  // });
 }
