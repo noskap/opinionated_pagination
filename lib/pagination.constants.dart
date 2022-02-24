@@ -14,11 +14,12 @@ class PaginationConstants {
 
   static Icon arrowIcon(IconData icon) => Icon(icon, color: Colors.black, size: 15.0);
 
-  static GestureDetector leftButton({required int pageNumber, int? skip, int? limit, required Function(int) onTap}) {
+  static const _thing = SizedBox(height: 2.0);
+  static const _style = TextStyle(color: Colors.black);
+
+  static GestureDetector leftButton({required int pageNumber, required Function(int) onTap}) {
     return GestureDetector(
-      onTap: () {
-        onTap(pageNumber - 1);
-      },
+      onTap: () => onTap(pageNumber - 1),
       child: Padding(
         padding: const EdgeInsets.only(right: 10.0),
         child: Column(children: [arrowIcon(Icons.arrow_back_ios), _thing]),
@@ -26,14 +27,9 @@ class PaginationConstants {
     );
   }
 
-  static const _thing = SizedBox(height: 2.0);
-  static const _style = TextStyle(color: Colors.black);
-
-  static GestureDetector ellipsisButton({required int pageNumber, required int numberOfPages, required Function(int) onTap, int? skip, int? limit}) {
+  static GestureDetector ellipsisButton({required int pageNumber, required int numberOfPages, required Function(int) onTap, int? skip}) {
     return GestureDetector(
-      onTap: () {
-        onTap(pageNumber);
-      },
+      onTap: () => onTap(pageNumber),
       child: Padding(
         padding: EdgeInsets.only(right: pageNumber < numberOfPages ? 10.0 : 0),
         child: Column(
@@ -47,11 +43,9 @@ class PaginationConstants {
     );
   }
 
-  static GestureDetector rightButton({required int pageNumber, required Function(int) onTap, int? skip, int? limit}) {
+  static GestureDetector rightButton({required int pageNumber, required Function(int) onTap}) {
     return GestureDetector(
-      onTap: () {
-        onTap(pageNumber + 1);
-      },
+      onTap: () => onTap(pageNumber + 1),
       child: Column(children: [arrowIcon(Icons.arrow_forward_ios), _thing]),
     );
   }
@@ -62,12 +56,9 @@ class PaginationConstants {
     required int i,
     int? skip,
     required Function(int) onTap,
-    int? limit,
   }) {
     return GestureDetector(
-      onTap: () {
-        onTap(pageNumber);
-      },
+      onTap: () => onTap(pageNumber),
       child: Padding(
         padding: EdgeInsets.only(right: i < numberOfPages ? 10.0 : 0),
         child: Column(

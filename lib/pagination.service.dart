@@ -24,20 +24,20 @@ class PaginationService {
       switch (type) {
         case ButtonTypes.left:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.leftButton(pageNumber: pageNumber, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.leftButton(pageNumber: pageNumber, onTap: onTap);
           break;
         case ButtonTypes.ellipsis:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.ellipsisButton(pageNumber: pageNumber, numberOfPages: numberOfPages, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.ellipsisButton(pageNumber: pageNumber, numberOfPages: numberOfPages, skip: skip, onTap: onTap);
           break;
         case ButtonTypes.right:
           rowToAddTest = type.name;
-          rowToAdd = PaginationConstants.rightButton(pageNumber: pageNumber, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.rightButton(pageNumber: pageNumber, onTap: onTap);
           break;
 
         case ButtonTypes.number:
           rowToAddTest = '${pageNumber + 1}';
-          rowToAdd = PaginationConstants.numberButton(pageNumber: pageNumber, numberOfPages: numberOfPages, i: i, skip: skip, limit: limit, onTap: onTap);
+          rowToAdd = PaginationConstants.numberButton(pageNumber: pageNumber, numberOfPages: numberOfPages, i: i, skip: skip, onTap: onTap);
           break;
       }
       rowNames.add(rowToAddTest);
