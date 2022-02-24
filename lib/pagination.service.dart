@@ -22,15 +22,15 @@ class PaginationService {
       String rowToAddTest;
       switch (type) {
         case ButtonTypes.left:
-          rowToAddTest = ButtonTypes.left.name;
+          rowToAddTest = type.name;
           rowToAdd = PaginationConstants.leftButton(pageNumber: i, skip: skip, limit: limit, onTap: onTap);
           break;
         case ButtonTypes.ellipsis:
-          rowToAddTest = ButtonTypes.ellipsis.name;
+          rowToAddTest = type.name;
           rowToAdd = PaginationConstants.ellipsisButton(pageNumber: pageNumber, numberOfPages: numberOfPages, skip: skip, limit: limit, onTap: onTap);
           break;
         case ButtonTypes.right:
-          rowToAddTest = ButtonTypes.right.name;
+          rowToAddTest = type.name;
           rowToAdd = PaginationConstants.rightButton(skip: skip, limit: limit, onTap: onTap);
           break;
 
@@ -49,8 +49,6 @@ class PaginationService {
           int pageNumber = i;
           if (paginationPage > 0 && i != 5) {
             pageNumber = i - 1;
-          } else if (i == 5) {
-            pageNumber = numberOfPages - 1;
           }
           addRow(type: paginationPage > 0 ? ButtonTypes.left : ButtonTypes.number, pageNumber: pageNumber, i: i);
           break;
@@ -58,12 +56,8 @@ class PaginationService {
           int pageNumber = i;
           if (paginationPage > 1) {
             pageNumber = 0;
-          } else if (paginationPage == 2) {
-            pageNumber = paginationPage;
           } else if (paginationPage > 0 && i != 5) {
             pageNumber = i - 1;
-          } else if (i == 5) {
-            pageNumber = numberOfPages - 1;
           }
           addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
           break;
@@ -78,8 +72,6 @@ class PaginationService {
             }
           } else if (paginationPage > 0 && i != 5) {
             pageNumber = i - 1;
-          } else if (i == 5) {
-            pageNumber = numberOfPages - 1;
           }
           addRow(type: paginationPage > 2 ? ButtonTypes.ellipsis : ButtonTypes.number, pageNumber: pageNumber, i: i);
           break;
@@ -94,7 +86,6 @@ class PaginationService {
           } else if (paginationPage == (numberOfPages - 2)) {
             pageNumber = numberOfPages - 3;
           }
-
           addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
           break;
         case 4:
@@ -113,8 +104,6 @@ class PaginationService {
               pageNumber = paginationPage;
             } else if (paginationPage == (numberOfPages - 3)) {
               pageNumber = paginationPage + 1;
-            } else if (paginationPage < numberOfPages) {
-              pageNumber = paginationPage;
             }
           }
           addRow(type: paginationPage < (numberOfPages - 3) ? ButtonTypes.ellipsis : ButtonTypes.number, pageNumber: pageNumber, i: i);
