@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:opinionated_pagination/pagination.constants.dart';
 
 class PaginationService {
+  // Returns List<String> if testMode is true, otherwise List<Widget>
   List getPageNumbers({
     required int paginationPage,
     required int numberOfPages,

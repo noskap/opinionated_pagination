@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+enum ButtonTypes {
+  left,
+  ellipsis,
+  right,
+  number,
+}
+
 class PaginationConstants {
   static String ellipsis = '...';
 
@@ -73,12 +80,4 @@ class PaginationConstants {
       ),
     );
   }
-
-}
-
-enum ButtonTypes {
-  left,
-  ellipsis,
-  right,
-  number,
 }
