@@ -39,12 +39,12 @@ class PageTest {
   PageTest({required this.page, required this.expected});
 }
 
-List<bool> didPass(List<String> test, List<String> expected, int index) {
+List<bool> didPass(List<String> expected, List<String> result, int index) {
   List<bool> passed = [];
-  for (int i = 0; i < test.length; i++) {
-    if (test[i] != expected[i]) print('ERROR: Test $index: Case $i: ${test[i]} should be ${expected[i]}');
-    passed.add(test[i] == expected[i]);
-    expect(test[i], expected[i], reason: 'Test $index: Case $i: ${test[i]} should be ${expected[i]}');
+  for (int i = 0; i < expected.length; i++) {
+    if (expected[i] != result[i]) print('ERROR: Test $index: Case $i: ${result[i]} should be ${expected[i]}');
+    passed.add(expected[i] == result[i]);
+    expect(expected[i], result[i], reason: 'Test $index: Case $i: ${result[i]} should be ${expected[i]}');
   }
   return passed;
 }
