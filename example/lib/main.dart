@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // final page = ref.watch(paginationPageProvider);
     final _pageGroupEnd = (paginationPage + 1) * limit;
     final _pageGroupStart = _pageGroupEnd - (limit - 1);
     return Scaffold(appBar: AppBar(title: Text('Opinionated Pagination Example'),),
@@ -52,7 +51,6 @@ class _HomeState extends State<Home> {
               limit: limit,
               onPageChanged: (int? i) {
                 if (i != null) {
-                  // ref.read(paginationPageProvider.state).state = i;
                   setState(() {
                     paginationPage = i;
                   });
