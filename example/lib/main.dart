@@ -31,7 +31,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final _pageGroupEnd = (paginationPage + 1) * limit;
     final _pageGroupStart = _pageGroupEnd - (limit - 1);
-    return Scaffold(appBar: AppBar(title: Text('Opinionated Pagination Example'),),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Opinionated Pagination Example'),
+      ),
       body: Container(
         padding: const EdgeInsets.only(top: 10.0),
         child: Column(
@@ -40,7 +43,8 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Showing $_pageGroupStart to ${_pageGroupEnd > itemCount ? itemCount : _pageGroupEnd} of $itemCount'),
+                Text(
+                    'Showing $_pageGroupStart to ${_pageGroupEnd > itemCount ? itemCount : _pageGroupEnd} of $itemCount'),
               ],
             ),
             Divider(height: 22.0, thickness: 1.0, color: Colors.grey.shade300),
