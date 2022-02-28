@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opinionated_pagination/pagination.constants.dart';
-import 'package:opinionated_pagination/pagination.service.dart';
+import './pagination.constants.dart';
+import './pagination.service.dart';
 
 class OpinionatedPagination extends StatelessWidget {
   final int totalItems;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:opinionated_pagination/pagination.constants.dart';
+import './pagination.constants.dart';
 
 class PaginationService {
   // Returns List<String> if testMode is true, otherwise List<Widget>
