@@ -42,7 +42,7 @@ class PageTest {
 List<bool> didPass(List<String> expected, List<String> result, int index) {
   List<bool> passed = [];
   for (int i = 0; i < expected.length; i++) {
-    if (expected[i] != result[i]) print('ERROR: Test $index: Case $i: ${result[i]} should be ${expected[i]}');
+    // if (expected[i] != result[i]) print('ERROR: Test $index: Case $i: ${result[i]} should be ${expected[i]}'); // For Debugging
     passed.add(expected[i] == result[i]);
     expect(expected[i], result[i], reason: 'Test $index: Case $i: ${result[i]} should be ${expected[i]}');
   }
