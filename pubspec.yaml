@@ -1,5 +1,5 @@
 name: opinionated_pagination
-description: A very opinionated ellipsis pagination solution.
+description: A very opinionated ellipsis pagination solution for Flutter. It provides a row of widgets with 7 buttons to control pagination. Designed with Riverpod in mind, but should work with your state management solution of choice.
 version: 0.0.11
 homepage: 'https://github.com/noskap/opinionated_pagination'
 
