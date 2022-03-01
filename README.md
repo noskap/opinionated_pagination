@@ -1,3 +1,6 @@
+<p align="center">
+<img src="https://github.com/noskap/opinionated_pagination/raw/master/example/preview.gif" width="100%" alt="preview" />
+</p>
 This is a pagination library that:
 
 - manages your pagination navigation for you
@@ -17,6 +20,7 @@ This is a pagination library that:
 Basic example using `setState`
 
 ```dart
+
 int paginationPage = 0;
 final int limit = 5;
 final int itemCount = 120;
@@ -36,4 +40,6 @@ var widget = OpinionatedPagination(
   },
 );
 ```
-A more fully formed example can be found on the [example](https://pub.dev/packages/opinionated_pagination/example) page
+
+A more fully formed example can be found on
+the [example](https://pub.dev/packages/opinionated_pagination/example) page
