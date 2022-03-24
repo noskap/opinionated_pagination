@@ -1,3 +1,7 @@
-## 0.0.1
+## 1.1.0+0
+- Fixed some issues with pagination cases that have less than 7 buttons
+- Added more unit tests
 
-* TODO: Describe initial release.
+## 1.0.0
+
+- Initial release
