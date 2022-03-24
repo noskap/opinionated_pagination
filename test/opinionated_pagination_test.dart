@@ -3,17 +3,21 @@ import 'package:opinionated_pagination/pagination.constants.dart';
 import 'package:opinionated_pagination/pagination.service.dart';
 
 void runTests() {
-  for (int i = 0; i < tests.length; i++) {
-    final PageTest index = tests[i];
-    runTest(i + 1, index.page, index.expected);
+  for (int i = 0; i < page27Tests.length; i++) {
+    final PageTest index = page27Tests[i];
+    runTest(i + 1, index.page, index.expected, 27);
+  }
+  for (int i = 0; i < page11Tests.length; i++) {
+    final PageTest index = page11Tests[i];
+    runTest(i + 1, index.page, index.expected, 11);
   }
 }
 
-void runTest(int index, int paginationPage, List<String> expected) {
+void runTest(int index, int paginationPage, List<String> expected, int numberOfPages) {
   test('Test $index', () {
     final List<String> test = PaginationService().getPageNumbers(
       paginationPage: paginationPage,
-      numberOfPages: 27,
+      numberOfPages: numberOfPages,
       testMode: true,
       onTap: (int? i) {},
     ) as List<String>;
@@ -21,7 +25,7 @@ void runTest(int index, int paginationPage, List<String> expected) {
   });
 }
 
-final List<PageTest> tests = [
+final List<PageTest> page27Tests = [
   PageTest(page: 0, expected: [
     '1',
     '2',
@@ -93,6 +97,63 @@ final List<PageTest> tests = [
     '25',
     '26',
     '27'
+  ]),
+];
+
+final List<PageTest> page11Tests = [
+  PageTest(page: 0, expected: [
+    '1',
+    '2',
+    '3',
+    '4',
+    ButtonTypes.ellipsis.name,
+    '11',
+    ButtonTypes.right.name,
+  ]),
+  PageTest(page: 1, expected: [
+    ButtonTypes.left.name,
+    '1',
+    '2',
+    '3',
+    ButtonTypes.ellipsis.name,
+    '11',
+    ButtonTypes.right.name,
+  ]),
+  PageTest(page: 2, expected: [
+    ButtonTypes.left.name,
+    '1',
+    '2',
+    '3',
+    ButtonTypes.ellipsis.name,
+    '11',
+    ButtonTypes.right.name,
+  ]),
+  PageTest(page: 3, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '4',
+    ButtonTypes.ellipsis.name,
+    '11',
+    ButtonTypes.right.name,
+  ]),
+  PageTest(page: 9, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '9',
+    '10',
+    '11',
+    ButtonTypes.right.name,
+  ]),
+  PageTest(page: 10, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '8',
+    '9',
+    '10',
+    '11',
   ]),
 ];
 
