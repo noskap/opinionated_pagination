@@ -21,7 +21,8 @@ void runTests() {
   }
 }
 
-void runTest(int index, int paginationPage, List<String> expected, int numberOfPages) {
+void runTest(
+    int index, int paginationPage, List<String> expected, int numberOfPages) {
   test('Test $index', () {
     final List<String> test = PaginationService().getPageNumbers(
       paginationPage: paginationPage,
@@ -34,14 +35,78 @@ void runTest(int index, int paginationPage, List<String> expected, int numberOfP
 }
 
 final List<PageTest> page27Tests = [
-  PageTest(page: 0, expected: ['1', '2', '3', '4', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name]),
-  PageTest(page: 1, expected: [ButtonTypes.left.name, '1', '2', '3', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name]),
-  PageTest(page: 2, expected: [ButtonTypes.left.name, '1', '2', '3', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name]),
-  PageTest(page: 3, expected: [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '4', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name]),
-  PageTest(page: 23, expected: [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '24', ButtonTypes.ellipsis.name, '27', ButtonTypes.right.name]),
-  PageTest(page: 24, expected: [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '25', '26', '27', ButtonTypes.right.name]),
-  PageTest(page: 25, expected: [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '25', '26', '27', ButtonTypes.right.name]),
-  PageTest(page: 26, expected: [ButtonTypes.left.name, '1', ButtonTypes.ellipsis.name, '24', '25', '26', '27']),
+  PageTest(page: 0, expected: [
+    '1',
+    '2',
+    '3',
+    '4',
+    ButtonTypes.ellipsis.name,
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 1, expected: [
+    ButtonTypes.left.name,
+    '1',
+    '2',
+    '3',
+    ButtonTypes.ellipsis.name,
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 2, expected: [
+    ButtonTypes.left.name,
+    '1',
+    '2',
+    '3',
+    ButtonTypes.ellipsis.name,
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 3, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '4',
+    ButtonTypes.ellipsis.name,
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 23, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '24',
+    ButtonTypes.ellipsis.name,
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 24, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '25',
+    '26',
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 25, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '25',
+    '26',
+    '27',
+    ButtonTypes.right.name
+  ]),
+  PageTest(page: 26, expected: [
+    ButtonTypes.left.name,
+    '1',
+    ButtonTypes.ellipsis.name,
+    '24',
+    '25',
+    '26',
+    '27'
+  ]),
 ];
 
 final List<PageTest> page11Tests = [
@@ -129,7 +194,8 @@ List<bool> didPass(List<String> expected, List<String> result, int index) {
   for (int i = 0; i < expected.length; i++) {
     // if (expected[i] != result[i]) print('ERROR: Test $index: Case $i: ${result[i]} should be ${expected[i]}'); // For Debugging
     passed.add(expected[i] == result[i]);
-    expect(expected[i], result[i], reason: 'Test $index: Case $i: ${result[i]} should be ${expected[i]}');
+    expect(expected[i], result[i],
+        reason: 'Test $index: Case $i: ${result[i]} should be ${expected[i]}');
   }
   return passed;
 }

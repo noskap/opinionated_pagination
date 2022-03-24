@@ -8,7 +8,12 @@ class OpinionatedPagination extends StatelessWidget {
   final int limit;
   final Function(int) onPageChanged;
 
-  const OpinionatedPagination({required this.pageNumber, required this.totalItems, required this.skip, required this.limit, required this.onPageChanged});
+  const OpinionatedPagination(
+      {required this.pageNumber,
+      required this.totalItems,
+      required this.skip,
+      required this.limit,
+      required this.onPageChanged});
 
   @override
   Widget build(BuildContext context) {
