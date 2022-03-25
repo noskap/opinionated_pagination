@@ -56,97 +56,105 @@ class PaginationService {
       row.add(rowToAdd);
     }
 
-    for (int i = 0; i < PaginationConstants.totalButtons; i++) {
-      switch (i) {
-        case 0:
-          addRow(
-              type: paginationPage > 0 ? ButtonTypes.left : ButtonTypes.number,
-              pageNumber: paginationPage,
-              i: i);
-          break;
-        case 1:
-          int pageNumber = i;
-          if (paginationPage > 1) {
-            pageNumber = 0;
-          } else if (paginationPage > 0 && i != 5) {
-            pageNumber = i - 1;
-          }
-          addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
-          break;
-        case 2:
-          int pageNumber = i;
-          if (paginationPage > 2) {
-            pageNumber = paginationPage - 1;
-            if (paginationPage == (numberOfPages - 1)) {
-              pageNumber = numberOfPages - 5;
-            } else if (paginationPage > (numberOfPages - 4)) {
-              pageNumber = numberOfPages - 4;
+    // If numberOfPages is less than totalButtons, no pagination controls are needed
+    if (numberOfPages <= PaginationConstants.totalButtons) {
+      for (int i = 0; i < numberOfPages; i++) {
+        addRow(type: ButtonTypes.number, pageNumber: i, i: i);
+      }
+    } else {
+      for (int i = 0; i < PaginationConstants.totalButtons; i++) {
+        switch (i) {
+          case 0:
+            addRow(
+                type:
+                    paginationPage > 0 ? ButtonTypes.left : ButtonTypes.number,
+                pageNumber: paginationPage,
+                i: i);
+            break;
+          case 1:
+            int pageNumber = i;
+            if (paginationPage > 1) {
+              pageNumber = 0;
+            } else if (paginationPage > 0 && i != 5) {
+              pageNumber = i - 1;
             }
-          } else if (paginationPage > 0 && i != 5) {
-            pageNumber = i - 1;
-          }
-          addRow(
-              type: paginationPage > 2
-                  ? ButtonTypes.ellipsis
-                  : ButtonTypes.number,
-              pageNumber: pageNumber,
-              i: i);
-          break;
-        case 3:
-          int pageNumber = paginationPage;
-          if (paginationPage == 0) {
-            pageNumber = i;
-          } else if (paginationPage == 1 || paginationPage == 2) {
-            pageNumber = 2;
-          } else if (paginationPage == (numberOfPages - 1)) {
-            pageNumber = numberOfPages - 4;
-          } else if (paginationPage == (numberOfPages - 2)) {
-            pageNumber = numberOfPages - 3;
-          }
-          addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
-          break;
-        case 4:
-          int pageNumber = paginationPage;
-          if (paginationPage < (numberOfPages - 3)) {
-            pageNumber = paginationPage + 1;
+            addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
+            break;
+          case 2:
+            int pageNumber = i;
+            if (paginationPage > 2) {
+              pageNumber = paginationPage - 1;
+              if (paginationPage == (numberOfPages - 1)) {
+                pageNumber = numberOfPages - 5;
+              } else if (paginationPage > (numberOfPages - 4)) {
+                pageNumber = numberOfPages - 4;
+              }
+            } else if (paginationPage > 0 && i != 5) {
+              pageNumber = i - 1;
+            }
+            addRow(
+                type: paginationPage > 2
+                    ? ButtonTypes.ellipsis
+                    : ButtonTypes.number,
+                pageNumber: pageNumber,
+                i: i);
+            break;
+          case 3:
+            int pageNumber = paginationPage;
             if (paginationPage == 0) {
               pageNumber = i;
-            } else if (paginationPage < 3) {
-              pageNumber = 3;
+            } else if (paginationPage == 1 || paginationPage == 2) {
+              pageNumber = 2;
+            } else if (paginationPage == (numberOfPages - 1)) {
+              pageNumber = numberOfPages - 4;
+            } else if (paginationPage == (numberOfPages - 2)) {
+              pageNumber = numberOfPages - 3;
             }
-          } else if (paginationPage == (numberOfPages - 1)) {
-            pageNumber = paginationPage - 2;
-          } else if (paginationPage == (numberOfPages - 2)) {
-            pageNumber = paginationPage;
-          } else if (paginationPage == (numberOfPages - 3)) {
-            pageNumber = paginationPage + 1;
-          }
-          addRow(
-              type: paginationPage < (numberOfPages - 3)
-                  ? ButtonTypes.ellipsis
-                  : ButtonTypes.number,
-              pageNumber: pageNumber,
-              i: i);
-          break;
-        case 5:
-          int pageNumber = paginationPage + 2;
-          if (paginationPage == (numberOfPages - 1)) {
-            pageNumber = paginationPage - 1;
-          } else if (paginationPage == (numberOfPages - 2)) {
-            pageNumber = paginationPage + 1;
-          } else if (i == 5) {
-            pageNumber = numberOfPages - 1;
-          }
-          addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
-          break;
-        case 6:
-          addRow(
-              type: paginationPage < (numberOfPages - 1)
-                  ? ButtonTypes.right
-                  : ButtonTypes.number,
-              pageNumber: paginationPage,
-              i: i);
-          break;
+            addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
+            break;
+          case 4:
+            int pageNumber = paginationPage;
+            if (paginationPage < (numberOfPages - 3)) {
+              pageNumber = paginationPage + 1;
+              if (paginationPage == 0) {
+                pageNumber = i;
+              } else if (paginationPage < 3) {
+                pageNumber = 3;
+              }
+            } else if (paginationPage == (numberOfPages - 1)) {
+              pageNumber = paginationPage - 2;
+            } else if (paginationPage == (numberOfPages - 2)) {
+              pageNumber = paginationPage;
+            } else if (paginationPage == (numberOfPages - 3)) {
+              pageNumber = paginationPage + 1;
+            }
+            addRow(
+                type: paginationPage < (numberOfPages - 3)
+                    ? ButtonTypes.ellipsis
+                    : ButtonTypes.number,
+                pageNumber: pageNumber,
+                i: i);
+            break;
+          case 5:
+            int pageNumber = paginationPage + 2;
+            if (paginationPage == (numberOfPages - 1)) {
+              pageNumber = paginationPage - 1;
+            } else if (paginationPage == (numberOfPages - 2)) {
+              pageNumber = paginationPage + 1;
+            } else if (i == 5) {
+              pageNumber = numberOfPages - 1;
+            }
+            addRow(type: ButtonTypes.number, pageNumber: pageNumber, i: i);
+            break;
+          case 6:
+            addRow(
+                type: paginationPage < (numberOfPages - 1)
+                    ? ButtonTypes.right
+                    : ButtonTypes.number,
+                pageNumber: paginationPage,
+                i: i);
+            break;
+        }
       }
     }
     return testMode ? rowNames : row;
