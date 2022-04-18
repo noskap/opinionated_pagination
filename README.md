@@ -1,6 +1,9 @@
 <p align="center">
 <img src="https://github.com/noskap/opinionated_pagination/raw/master/example/preview.gif" width="100%" alt="preview" />
 </p>
+
+[![Dart](https://github.com/noskap/opinionated_pagination/actions/workflows/dart.yml/badge.svg)](https://github.com/noskap/opinionated_pagination/actions/workflows/dart.yml)
+
 This is a pagination library that:
 
 - manages your pagination navigation for you
