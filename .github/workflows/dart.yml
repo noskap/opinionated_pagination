@@ -25,4 +25,4 @@ jobs:
       - name: Pub get
         run: dart pub get
       - name: Run tests
-        run: pub run test
+        run: flutter test
