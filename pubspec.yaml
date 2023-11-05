@@ -1,11 +1,11 @@
 name: opinionated_pagination
 description: An ellipsis pagination solution for Flutter. Designed with Riverpod, but should work with any state management solution.
-version: 1.1.0+0
+version: 1.1.0+1
 homepage: 'https://github.com/noskap/opinionated_pagination'
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.16.0 <4.0.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
@@ -16,14 +16,21 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
 
-# The following section is specific to Flutter.
 flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.hello
+        pluginClass: OpinionatedPagination
+      ios:
+        pluginClass: OpinionatedPagination
+      macos:
+        pluginClass: OpinionatedPagination
+      linux:
+        pluginClass: OpinionatedPagination
+      web:
+        pluginClass: OpinionatedPagination
+        fileName: opinionated_pagination.dart
+      windows:
+        pluginClass: OpinionatedPagination
 
-# This package supports all platforms listed below.
-platforms:
-  android:
-  ios:
-  linux:
-  macos:
-  web:
-  windows:
